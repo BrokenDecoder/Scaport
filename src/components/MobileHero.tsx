@@ -53,12 +53,12 @@ export function MobileHero() {
   return (
     <section
       ref={sectionRef}
-      className="flex flex-col justify-end w-full min-h-screen px-5 pb-8 pt-20 overflow-hidden"
+      className="flex flex-col justify-end w-full min-h-screen px-5 pb-6 pt-16 overflow-hidden"
       style={{ background: "linear-gradient(180deg, #09090b 0%, #0d0d11 100%)" }}
     >
-      {/* ── Portrait in upper space (marked by user) ─────────── */}
+      {/* ── Portrait in upper space (scaled with comfortable headroom) ── */}
       <motion.div
-        className="relative w-full max-w-[240px] xs:max-w-[270px] aspect-square mx-auto mb-3 flex items-center justify-center"
+        className="relative w-full max-w-[190px] xs:max-w-[215px] sm:max-w-[240px] aspect-square mx-auto mb-2 flex items-center justify-center shrink-0"
         style={{ y: portraitY, opacity: portraitOp }}
       >
         {/* Soft atmospheric backlight aura */}
