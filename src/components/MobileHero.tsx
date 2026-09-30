@@ -53,27 +53,27 @@ export function MobileHero() {
   return (
     <section
       ref={sectionRef}
-      className="flex flex-col justify-end w-full min-h-screen px-5 pb-6 pt-16 overflow-hidden"
+      className="flex flex-col justify-end w-full min-h-screen px-5 pb-8 pt-20 overflow-hidden"
       style={{ background: "linear-gradient(180deg, #09090b 0%, #0d0d11 100%)" }}
     >
-      {/* ── Portrait in upper space (scaled with comfortable headroom) ── */}
+      {/* ── Portrait in upper space (scaled +100px) ── */}
       <motion.div
-        className="relative w-full max-w-[190px] xs:max-w-[215px] sm:max-w-[240px] aspect-square mx-auto mb-2 flex items-center justify-center shrink-0"
+        className="relative w-full max-w-[285px] xs:max-w-[310px] sm:max-w-[340px] aspect-square mx-auto mb-3 flex items-center justify-center shrink-0"
         style={{ y: portraitY, opacity: portraitOp }}
       >
         {/* Soft atmospheric backlight aura */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 rounded-full blur-2xl opacity-25 pointer-events-none -z-10"
-          style={{ background: "radial-gradient(circle, rgba(168,85,247,0.5) 0%, rgba(99,102,241,0.2) 50%, transparent 75%)" }}
+          className="absolute inset-0 rounded-full blur-3xl opacity-30 pointer-events-none -z-10"
+          style={{ background: "radial-gradient(circle, rgba(168,85,247,0.55) 0%, rgba(99,102,241,0.25) 50%, transparent 75%)" }}
         />
         <Image
           src="/images/himanshu-mobile.webp"
           alt="Himanshu Kushwaha"
-          width={300}
-          height={300}
+          width={340}
+          height={340}
           priority
-          className="w-full h-full object-contain filter drop-shadow-[0_16px_32px_rgba(0,0,0,0.85)]"
+          className="w-full h-full object-contain filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
         />
       </motion.div>
       {/* ── Eyebrow ──────────────────────────────────────────── */}
