@@ -1,0 +1,89 @@
+.glare-hover {
+  width: var(--gh-width, 100%);
+  height: var(--gh-height, auto);
+  background: var(--gh-bg, transparent);
+  border-radius: var(--gh-br, 1rem);
+  border: 1px solid var(--gh-border, rgba(39, 39, 42, 0.8));
+  overflow: hidden;
+  position: relative;
+}
+
+.glare-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--gh-angle, -45deg),
+    hsla(0, 0%, 0%, 0) 60%,
+    var(--gh-rgba, rgba(255, 255, 255, 0.15)) 70%,
+    hsla(0, 0%, 0%, 0),
+    hsla(0, 0%, 0%, 0) 100%
+  );
+  transition: var(--gh-duration, 650ms) cubic-bezier(0.16, 1, 0.3, 1);
+  background-size:
+    var(--gh-size, 250%) var(--gh-size, 250%),
+    100% 100%;
+  background-repeat: no-repeat;
+  background-position:
+    -100% -100%,
+    0 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.glare-hover:hover::before {
+  background-position:
+    100% 100%,
+    0 0;
+}
+
+.glare-hover--play-once::before {
+  transition: none;
+}
+
+.glare-hover--play-once:hover::before {
+  transition: var(--gh-duration, 650ms) cubic-bezier(0.16, 1, 0.3, 1);
+  background-position:
+    100% 100%,
+    0 0;
+}
+
+/* Dedicated internal glare overlay for composite cards (preserves external connectors & borders) */
+.glare-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glare-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--gh-angle, -40deg),
+    hsla(0, 0%, 0%, 0) 58%,
+    var(--gh-rgba, rgba(255, 255, 255, 0.14)) 70%,
+    hsla(0, 0%, 0%, 0),
+    hsla(0, 0%, 0%, 0) 100%
+  );
+  transition: var(--gh-duration, 700ms) cubic-bezier(0.16, 1, 0.3, 1);
+  background-size:
+    var(--gh-size, 260%) var(--gh-size, 260%),
+    100% 100%;
+  background-repeat: no-repeat;
+  background-position:
+    -120% -120%,
+    0 0;
+  pointer-events: none;
+}
+
+.group:hover .glare-overlay::before,
+[data-glare]:hover .glare-overlay::before,
+.motion-card-hover:hover .glare-overlay::before {
+  background-position:
+    120% 120%,
+    0 0;
+}

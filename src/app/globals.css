@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-mono: "Google Sans Code", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-handwriting: "Gochi Hand", cursive;
+  --font-pixel: "Press Start 2P", monospace;
+
+  --color-canvas: #09090b;
+  --color-surface: #0d0d11;
+  --color-elevated: #18181b;
+  --color-line: #27272a;
+  
+  --color-ink: #f4f4f5;
+  --color-muted: #a1a1aa;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  body {
+    background-color: var(--color-canvas);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
